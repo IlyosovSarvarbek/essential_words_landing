@@ -1,57 +1,14 @@
 import Image from "next/image";
+import { site, features, faqs } from "@/config/site";
+import { pageMetadata } from "@/lib/metadata";
+import { SiteHeader, SiteFooter } from "./components/site-chrome";
+import { PageMotion } from "./components/page-motion";
+import { StructuredData } from "./components/structured-data";
 import { Icon } from "./components/ui-icon";
 import { StudyDemo } from "./components/study-demo";
 import { AppGallery } from "./components/app-gallery";
 
-const features = [
-  {
-    icon: "layers",
-    title: "Recall before you reveal.",
-    text: "Give your memory a moment. Flip the card to see the Uzbek translation, then decide what you know.",
-  },
-  {
-    icon: "audio",
-    title: "Learn how it sounds.",
-    text: "Hear English pronunciation as you review. Listen with your device’s English text-to-speech voice.",
-  },
-  {
-    icon: "quiz",
-    title: "Put your words to the test.",
-    text: "Practice English to Uzbek or Uzbek to English. Get immediate feedback with four-choice quizzes.",
-  },
-  {
-    icon: "progress",
-    title: "See your progress grow.",
-    text: "Mark words as learned and see your progress across every unit, book, and the whole collection.",
-  },
-] as const;
-
-const faqs = [
-  [
-    "What can I learn with Essential Words?",
-    "Explore 3,600 English–Uzbek vocabulary entries across six books. Each book has 30 units of 20 words, with English spelling, Uzbek translations, and parts of speech. Review, practice flashcards, or take a quiz in either direction.",
-  ],
-  [
-    "Can I study offline?",
-    "Yes. Vocabulary is bundled with the app, so core word review, flashcards, quizzes, and progress tracking work offline. Pronunciation depends on your device’s speech engine and requires an installed offline English voice to work without a connection.",
-  ],
-  [
-    "Do I need an account?",
-    "No account is needed. Your learned words, theme preference, and completed quiz attempts are saved locally on your device. There is no cloud synchronization; clearing app or browser site data can remove locally saved progress.",
-  ],
-  [
-    "How do flashcards and quizzes affect my progress?",
-    "You choose which words to mark as learned. New flashcard sessions focus on words you haven’t marked learned yet. Quiz scores measure your answers for that attempt and do not automatically change your learned-word progress. You can revisit all words through word review.",
-  ],
-  [
-    "Can I search in Uzbek?",
-    "Yes. The dictionary lets you choose English or Uzbek and search across all six books. Each result shows its book and unit, so you can return to the word in context.",
-  ],
-  [
-    "Does pronunciation work on every device?",
-    "The app uses English (US) text-to-speech. Availability and voice quality depend on the platform and installed voices. The Flutter app currently has no Linux pronunciation implementation. The website sample uses your browser’s speech support.",
-  ],
-];
+export const metadata = pageMetadata(site.seo.homeTitle, site.description, "/");
 
 export default function Home() {
   return (
@@ -59,26 +16,9 @@ export default function Home() {
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <header className="site-header">
-        <div className="container header-inner">
-          <a className="brand" href="#" aria-label="Essential Words home">
-            <Image src="/app/icon.png" alt="" width={43} height={43} />
-            <span>
-              essential<span className="brand-light">words</span>
-              <span className="brand-period">.</span>
-            </span>
-          </a>
-          <nav aria-label="Main navigation">
-            <a href="#features">Features</a>
-            <a href="#how-it-works">How it works</a>
-            <a href="#inside">Inside the app</a>
-            <a href="#faq">FAQ</a>
-          </nav>
-          <a className="button button-small button-outline" href="#try-it">
-            Try a flashcard
-          </a>
-        </div>
-      </header>
+      <SiteHeader home />
+      <PageMotion />
+      <StructuredData />
       <main id="main">
         <section className="hero container" aria-labelledby="hero-heading">
           <div className="hero-copy">
@@ -125,7 +65,7 @@ export default function Home() {
             <div className="phone phone-back">
               <Image
                 src="/app/books.webp"
-                alt="Essential Words’ real book library with six books and learning progress"
+                alt={`${site.name}’ real book library with six books and learning progress`}
                 width={780}
                 height={1688}
                 sizes="240px"
@@ -154,7 +94,7 @@ export default function Home() {
               </span>
             </div>
             <span className="screenshot-caption">
-              Actual screens from Essential Words
+              Actual screens from {site.name}
             </span>
           </div>
         </section>
@@ -166,19 +106,19 @@ export default function Home() {
               <strong>One word at a time.</strong>
             </p>
             <div>
-              <strong>3,600</strong>
+              <strong>{site.collection.entries.toLocaleString("en-US")}</strong>
               <span>vocabulary entries</span>
             </div>
             <div>
-              <strong>6</strong>
+              <strong>{site.collection.books}</strong>
               <span>books to explore</span>
             </div>
             <div>
-              <strong>180</strong>
+              <strong>{site.collection.units}</strong>
               <span>focused units</span>
             </div>
             <div>
-              <strong>20</strong>
+              <strong>{site.collection.wordsPerUnit}</strong>
               <span>words in each unit</span>
             </div>
           </div>
@@ -358,7 +298,7 @@ export default function Home() {
         </section>
         <section className="container closing-section">
           <div className="closing-icon">
-            <Image src="/app/icon.png" alt="" width={72} height={72} />
+            <Image src={site.brand.icon} alt="" width={72} height={72} />
           </div>
           <p className="eyebrow">YOUR NEXT WORD IS A SMALL STEP AWAY</p>
           <h2>
@@ -372,18 +312,7 @@ export default function Home() {
           <p className="closing-note">English + Uzbek. One unit at a time.</p>
         </section>
       </main>
-      <footer className="site-footer container">
-        <a className="brand footer-brand" href="#">
-          <Image src="/app/icon.png" alt="" width={32} height={32} />
-          <span>
-            essential<span className="brand-light">words</span>
-            <span className="brand-period">.</span>
-          </span>
-        </a>
-        <p>Build your vocabulary, one unit at a time.</p>
-        <a href="#faq">Questions & answers</a>
-        <span>© 2026 Essential Words</span>
-      </footer>
+      <SiteFooter home />
     </>
   );
 }

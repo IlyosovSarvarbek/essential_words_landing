@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import { site } from "@/config/site";
+import { pageMetadata } from "@/lib/metadata";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -20,19 +21,9 @@ const roboto = localFont({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Essential Words — English, one unit at a time",
-  description:
-    "Build your English vocabulary with Uzbek translations. Explore 3,600 words, animated flashcards, pronunciation, two-way quizzes, and progress saved on your device.",
-  applicationName: "Essential Words",
-  icons: { icon: "/app/icon.png", apple: "/app/icon.png" },
-  openGraph: {
-    title: "Essential Words — Small steps. Stronger English.",
-    description:
-      "English + Uzbek. Explore 3,600 vocabulary entries, practice flashcards, and learn one unit at a time.",
-    type: "website",
-    locale: "en_US",
-  },
+export const metadata = {
+  ...pageMetadata(site.seo.homeTitle, site.description, "/"),
+  icons: { icon: site.brand.icon, apple: site.brand.icon },
 };
 
 export default function RootLayout({
@@ -41,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={roboto.variable}>
+    <html lang={site.seo.language} className={roboto.variable}>
       <body>{children}</body>
     </html>
   );

@@ -106,3 +106,9 @@ Build a responsive Next.js landing page with a dark blue/charcoal identity, orig
 - Desktop and mobile captures visually inspected, including visible front/back flashcards at the mobile viewport. Offscreen 3D layers can be absent from a full-page automated capture; visible viewport captures verified that the actual card renders and operates correctly.
 - Pronunciation availability handling is implemented; audible voice quality was not assessed.
 - Final Flutter Git status and diff checks were clean. No application source, configuration, or assets were changed.
+
+## Subsequent landing-page enhancements
+
+The later user brief supplied the textbook attribution: *4000 Essential English Words* by Paul Nation, Compass Publishing. The publisher's official listing was checked, and the credits page now acknowledges this source without asserting redistribution permission or official affiliation. This supersedes the initial absence of a verified publisher credit; the feature inventory and count of 3,600 app vocabulary entries remain unchanged.
+
+GSAP motion, shared site configuration, complete Terms/Privacy/Credits pages, and SEO were added while retaining the existing landing-page design. A second read-only Flutter inspection informed the privacy text. See [site configuration and validation](site-configuration.md) for the details still requiring operator input, the rights-review boundary, domain/indexing configuration, and completed checks.

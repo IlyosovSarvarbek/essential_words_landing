@@ -2,15 +2,9 @@
 
 import { useRef, useState } from "react";
 import { Icon } from "./ui-icon";
+import { sampleWords as words } from "@/config/site";
 
 // Five public entries from assets/data/books/1.json, Unit 1. See docs/product-reference.md.
-const words = [
-  { english: "afraid", uzbek: "qo'rqqan, cho'chigan", part: "adjective" },
-  { english: "agree", uzbek: "fikriga qo'shilmoq, rozi bo'lmoq", part: "verb" },
-  { english: "angry", uzbek: "jahli chiqqan, badjahl", part: "adjective" },
-  { english: "arrive", uzbek: "yetib kelmoq, kelmoq", part: "verb" },
-  { english: "attack", uzbek: "hujum qilmoq, hujum uyushtirmoq", part: "verb" },
-];
 
 export function StudyDemo() {
   const [mode, setMode] = useState<"flashcards" | "quiz">("flashcards");
