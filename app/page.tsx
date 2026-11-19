@@ -306,9 +306,40 @@ export default function Home() {
             <br />
             <span className="blue-text">Every time you practice.</span>
           </h2>
-          <a className="button button-primary" href="#try-it">
-            <Icon name="layers" /> Try your first flashcard
-          </a>
+          <div className="closing-actions">
+            {site.urls.flutterWebApp ? (
+              <a
+                className="button button-primary"
+                href={site.urls.flutterWebApp}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Try it on the web (opens in a new tab)"
+              >
+                <Icon name="globe" /> Try it on the web
+              </a>
+            ) : (
+              <button className="button button-primary" disabled>
+                <Icon name="globe" /> Try it on the web
+              </button>
+            )}
+            {site.urls.androidApk ? (
+              <a
+                className="button button-outline"
+                href={site.urls.androidApk}
+                download
+              >
+                <Icon name="android" /> Download for Android
+              </a>
+            ) : (
+              <button
+                className="button button-outline"
+                disabled
+                title="Android download is not available yet"
+              >
+                <Icon name="android" /> Download for Android
+              </button>
+            )}
+          </div>
           <p className="closing-note">English + Uzbek. One unit at a time.</p>
         </section>
       </main>

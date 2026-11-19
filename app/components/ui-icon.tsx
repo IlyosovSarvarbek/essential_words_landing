@@ -1,6 +1,19 @@
 import type { CSSProperties } from "react";
 
 const paths = {
+  globe: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <ellipse cx="12" cy="12" rx="4" ry="9" />
+      <path d="M3 12h18" />
+    </>
+  ),
+  android: (
+    <>
+      <path d="M5 11a7 7 0 0 1 14 0v8H5ZM7 5 5 2m12 3 2-3M2 11v7m20-7v7M8 19v3m8-3v3" />
+      <path d="M9 10h.01M15 10h.01" strokeWidth="3" />
+    </>
+  ),
   layers: (
     <>
       <path d="m12 3 10 5-10 5L2 8Z" />

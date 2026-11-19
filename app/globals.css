@@ -1247,6 +1247,16 @@ h2 {
   font-size: 12px;
   margin-top: 18px;
 }
+.closing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.closing-actions .button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
 .site-footer {
   border-top: 1px solid var(--border);
   padding-block: 30px;
