@@ -28,16 +28,16 @@ export const site = {
   },
   legal: {
     lastReviewed: "2026-11-19",
-    effectiveDates: { terms: "", privacy: "", credits: "" }, // FILL IN: YYYY-MM-DD, after approval.
+    effectiveDates: { terms: "2026-11-19", privacy: "2026-11-19", credits: "2026-11-19" }, // FILL IN: YYYY-MM-DD, after approval.
     reviewRequired: true, // Set false only after operator/legal review of the completed pages.
     copyrightYear: 2026,
     governingLaw: "Laws of the Republic of Uzbekistan", // FILL IN after jurisdiction-specific legal review.
-    hostingProvider: "Vercel", // FILL IN: actual website hosting/CDN provider(s).
+    hostingProvider: "Vercel (landing page); Netlify (Flutter web app)", // FILL IN: actual website hosting/CDN provider(s).
     hostingRegion: "", // FILL IN: actual hosting/log processing region(s).
     hostingLogRetention: "", // FILL IN: verified hosting log retention period.
     copyrightPermissionStatus: "unverified" as "unverified" | "confirmed",
     copyrightPermissionDetails: "", // FILL IN: public scope/limitations of verified permission; no confidential contracts.
-    translationCredits: "ChatGPT", // FILL IN: verified Uzbek translation authorship/license.
+    translationCredits: "Uzbek translations were prepared with assistance from ChatGPT and reviewed and edited by Sarvarbek Ilyosov.", // FILL IN: verified Uzbek translation authorship/license.
   },
   textbook: {
     title: "4000 Essential English Words",
